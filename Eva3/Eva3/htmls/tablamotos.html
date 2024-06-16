@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="../estilos.css/tablamotos.css" rel="stylesheet">
+    <script src="../js/modal.js" defer></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="d-grid gap-2">
+                    <button id="openModalBtnEliminar" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#myModalEliminar">Eliminar</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="d-grid gap-2">
+                    <button id="openModalBtnModificar" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#myModalModificar">Modificar</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="d-grid gap-2">
+                    <button id="openModalBtnCrear" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#myModalCrear">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eliminar -->
+    <div class="modal fade" id="myModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEliminar">
+                        <div class="mb-3">
+                            <label for="eliminarId" class="form-label">ID de la Moto</label>
+                            <input type="number" class="form-control" id="eliminarId" name="eliminarId" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Modificar -->
+    <div class="modal fade" id="myModalModificar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formModificar">
+                        <div class="mb-3">
+                            <label for="modificarId" class="form-label">ID de la Moto</label>
+                            <input type="number" class="form-control" id="modificarId" name="modificarId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarModelo" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" id="modificarModelo" name="modificarModelo"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarColor" class="form-label">Color</label>
+                            <input type="text" class="form-control" id="modificarColor" name="modificarColor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarCilindrada" class="form-label">Cilindrada</label>
+                            <input type="text" class="form-control" id="modificarCilindrada" name="modificarCilindrada"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarKilometraje" class="form-label">Kilometraje</label>
+                            <input type="text" class="form-control" id="modificarKilometraje"
+                                name="modificarKilometraje" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarPrecio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="modificarPrecio" name="modificarPrecio"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarEstado" class="form-label">Estado</label>
+                            <select class="form-select" id="modificarEstado" name="modificarEstado" required>
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Usado">Usado</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarFechaIngreso" class="form-label">Fecha Ingreso</label>
+                            <input type="date" class="form-control" id="modificarFechaIngreso"
+                                name="modificarFechaIngreso" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarFechaActualizacion" class="form-label">Fecha Actualización</label>
+                            <input type="date" class="form-control" id="modificarFechaActualizacion"
+                                name="modificarFechaActualizacion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modificarDescripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="modificarDescripcion"
+                                name="modificarDescripcion" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modificar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Crear -->
+    <div class="modal fade" id="myModalCrear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCrear">
+                        <div class="mb-3">
+                            <label for="crearModelo" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" id="crearModelo" name="crearModelo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearColor" class="form-label">Color</label>
+                            <input type="text" class="form-control" id="crearColor" name="crearColor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearCilindrada" class="form-label">Cilindrada</label>
+                            <input type="text" class="form-control" id="crearCilindrada" name="crearCilindrada"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearKilometraje" class="form-label">Kilometraje</label>
+                            <input type="text" class="form-control" id="crearKilometraje" name="crearKilometraje"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearPrecio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="crearPrecio" name="crearPrecio" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearEstado" class="form-label">Estado</label>
+                            <select class="form-select" id="crearEstado" name="crearEstado" required>
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Usado">Usado</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearFechaIngreso" class="form-label">Fecha Ingreso</label>
+                            <input type="date" class="form-control" id="crearFechaIngreso" name="crearFechaIngreso"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearFechaActualizacion" class="form-label">Fecha Actualización</label>
+                            <input type="date" class="form-control" id="crearFechaActualizacion"
+                                name="crearFechaActualizacion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="crearDescripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="crearDescripcion" name="crearDescripcion"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Black Wasp</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="motos.html">Motos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablamotos.html">Tabla de
+                            Motos</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success bg-white" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <form id="filtros" action="tu_ruta_de_filtro" method="GET" class="mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" placeholder="Ingrese el modelo" id="modelo" name="modelo" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" placeholder="Ingrese el color" id="color" name="color" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="cilindrada" class="form-label">Cilindrada</label>
+                    <input type="text" placeholder="Ingrese centímetros cúbicos" id="cilindrada" name="cilindrada"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="precio_min" class="form-label">Precio
+                        Mínimo</label>
+                    <input type="number" placeholder="Ingrese el precio mínimo que desea buscar" id="precio_min"
+                        name="precio_min" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="precio_max" class="form-label">Precio
+                        Máximo</label>
+                    <input type="number" placeholder="Ingrese el precio máximo que desea buscar" id="precio_max"
+                        name="precio_max" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select id="estado" name="estado" class="form-select">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Usado">Usado</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Aplicar
+                Filtros</button>
+        </form>
+        <div class="col-md-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title">Listado de Motos</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Modelo</th>
+                                <th>Color</th>
+                                <th>Cilindrada</th>
+                                <th>Kilometraje</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Fecha Ingreso</th>
+                                <th>Fecha Actualización</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Yamaha YZF-R3</td>
+                                <td>Azul</td>
+                                <td>321 cc</td>
+                                <td>12,000 km</td>
+                                <td>$5,500</td>
+                                <td>Usado</td>
+                                <td>2023-01-10</td>
+                                <td>2024-06-01</td>
+                                <td>Bien mantenida, un solo dueño.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Kawasaki Ninja 400</td>
+                                <td>Verde</td>
+                                <td>399 cc</td>
+                                <td>8,000 km</td>
+                                <td>$6,800</td>
+                                <td>Usado</td>
+                                <td>2023-02-14</td>
+                                <td>2024-05-20</td>
+                                <td>Perfecta para principiantes.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Honda CBR500R</td>
+                                <td>Rojo</td>
+                                <td>471 cc</td>
+                                <td>15,000 km</td>
+                                <td>$7,200</td>
+                                <td>Usado</td>
+                                <td>2023-03-22</td>
+                                <td>2024-04-18</td>
+                                <td>Sin accidentes, mantenimientos al
+                                    día.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Suzuki GSX250R</td>
+                                <td>Negro</td>
+                                <td>248 cc</td>
+                                <td>20,000 km</td>
+                                <td>$4,500</td>
+                                <td>Usado</td>
+                                <td>2023-04-15</td>
+                                <td>2024-03-12</td>
+                                <td>Recién pintada, en muy buen estado.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>BMW G310R</td>
+                                <td>Blanco</td>
+                                <td>313 cc</td>
+                                <td>10,000 km</td>
+                                <td>$5,800</td>
+                                <td>Usado</td>
+                                <td>2023-05-05</td>
+                                <td>2024-02-25</td>
+                                <td>Excelente para ciudad.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Harley-Davidson Street 750</td>
+                                <td>Negro</td>
+                                <td>749 cc</td>
+                                <td>25,000 km</td>
+                                <td>$8,500</td>
+                                <td>Usado</td>
+                                <td>2023-06-18</td>
+                                <td>2024-01-22</td>
+                                <td>Clásica y potente.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Ducati Monster 797</td>
+                                <td>Rojo</td>
+                                <td>803 cc</td>
+                                <td>5,000 km</td>
+                                <td>$9,000</td>
+                                <td>Usado</td>
+                                <td>2023-07-20</td>
+                                <td>2024-03-08</td>
+                                <td>Alta performance, como nueva.</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Triumph Street Triple</td>
+                                <td>Gris</td>
+                                <td>765 cc</td>
+                                <td>12,000 km</td>
+                                <td>$10,500</td>
+                                <td>Usado</td>
+                                <td>2023-08-22</td>
+                                <td>2024-05-15</td>
+                                <td>Con muchos extras incluidos.</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>KTM 390 Duke</td>
+                                <td>Naranja</td>
+                                <td>373 cc</td>
+                                <td>18,000 km</td>
+                                <td>$5,900</td>
+                                <td>Usado</td>
+                                <td>2023-09-10</td>
+                                <td>2024-06-10</td>
+                                <td>Aventura y ciudad en una sola moto.</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Yamaha MT-07</td>
+                                <td>Azul</td>
+                                <td>689 cc</td>
+                                <td>22,000 km</td>
+                                <td>$7,800</td>
+                                <td>Usado</td>
+                                <td>2023-10-22</td>
+                                <td>2024-05-25</td>
+                                <td>Motor potente y confiable.</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Suzuki SV650</td>
+                                <td>Negro</td>
+                                <td>645 cc</td>
+                                <td>30,000 km</td>
+                                <td>$6,300</td>
+                                <td>Usado</td>
+                                <td>2023-11-05</td>
+                                <td>2024-06-05</td>
+                                <td>Gran manejo y economía de
+                                    combustible.</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Honda Rebel 500</td>
+                                <td>Gris</td>
+                                <td>471 cc</td>
+                                <td>7,000 km</td>
+                                <td>$6,000</td>
+                                <td>Usado</td>
+                                <td>2023-12-10</td>
+                                <td>2024-05-30</td>
+                                <td>Estilo único, muy cómoda.</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Kawasaki Z650</td>
+                                <td>Verde</td>
+                                <td>649 cc</td>
+                                <td>5,500 km</td>
+                                <td>$7,000</td>
+                                <td>Usado</td>
+                                <td>2023-01-25</td>
+                                <td>2024-06-10</td>
+                                <td>Ágil y rápida, con buen
+                                    mantenimiento.</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Royal Enfield Himalayan</td>
+                                <td>Blanco</td>
+                                <td>411 cc</td>
+                                <td>10,000 km</td>
+                                <td>$5,200</td>
+                                <td>Usado</td>
+                                <td>2023-02-18</td>
+                                <td>2024-04-20</td>
+                                <td>Ideal para viajes largos.</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Aprilia RS 660</td>
+                                <td>Rojo</td>
+                                <td>659 cc</td>
+                                <td>3,000 km</td>
+                                <td>$11,000</td>
+                                <td>Usado</td>
+                                <td>2023-03-30</td>
+                                <td>2024-05-15</td>
+                                <td>Deportiva y de alta tecnología.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="10">Total de motos: 15</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer bg-dark">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Black Wasp. Todos los derechos
+                reservados.Creado por : Luis Tobar - Antonio Vergudo</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>

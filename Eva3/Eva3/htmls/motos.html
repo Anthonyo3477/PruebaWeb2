@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Motos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link href="../estilos.css/motos.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100 ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Black Wasp</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="motos.html">Motos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablamotos.html">Tabla de
+                            Motos</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success bg-white" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title">Ingresar Moto</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="id_modelo" class="form-label">Modelo</label>
+                                <input type="text" placeholder="Ingrese Modelo" class="form-control" id="id_modelo"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="color" class="form-label">Color</label>
+                                <input type="text" placeholder="Ingrese Color" class="form-control" id="color" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cc" class="form-label">Cilindrada
+                                    (cc)</label>
+                                <input type="text" placeholder="Ingrese Cilindrada" class="form-control" id="cc"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="milage" class="form-label">Kilometraje</label>
+                                <input type="text" placeholder="Ingrese Kilometraje" class="form-control" id="milage"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input type="number" placeholder="Ingrese Precio" class="form-control" id="precio"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">Estado</label>
+                                <select class="form-select" id="estado" required>
+                                    <option value disabled selected>Seleccionar</option>
+                                    <option value="Nuevo">Nuevo</option>
+                                    <option value="Usado">Usado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date_init" class="form-label">Fecha de
+                                    Ingreso</label>
+                                <input type="date" class="form-control" id="date_init" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="update_of" class="form-label">Fecha de
+                                    Actualización</label>
+                                <input type="date" class="form-control" id="update_of" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <textarea class="form-control" placeholder="Ingrese descripcion de la motocicleta"
+                                    id="descripcion" rows="3" required></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="inputGroupFile02">
+                                <label class="input-group-text" for="inputGroupFile02">Insertar</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Registrar
+                                Moto</button>
+                            <button type="submit" class="btn btn-primary">Eliminar
+                                Moto</button>
+                            <button type="submit" class="btn btn-primary">Modificar
+                                Moto</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-dark text-white-50">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Black Wasp. Todos los derechos
+                reservados.Creado por : Luis Tobar - Antonio Vergudo</span>
+        </div>
+    </footer>
+</body>
+
+</html>
